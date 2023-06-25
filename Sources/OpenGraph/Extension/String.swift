@@ -10,6 +10,9 @@ import Foundation
 
 extension String {
     init?(data: Data, textEncodingName: String? = nil, `default`: String.Encoding = .utf8) {
+#if os(Linux)
+        self.init(data: data, encoding: `default`)
+#else
         let encoding: String.Encoding = {
             if let textEncodingName = textEncodingName {
                 let cfe = CFStringConvertIANACharSetNameToEncoding(textEncodingName as CFString)
@@ -25,5 +28,6 @@ extension String {
         }()
 
         self.init(data: data, encoding: encoding)
+#endif
     }
 }

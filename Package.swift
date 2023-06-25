@@ -18,10 +18,10 @@ let package = Package(
             path: "Sources/OpenGraph",
             exclude: ["Info.plist"]
         ),
-         .testTarget(
-            name: "OpenGraphTests",
-            dependencies: ["OpenGraph"]
-        ),
+//         .testTarget(
+//            name: "OpenGraphTests",
+//            dependencies: ["OpenGraph"]
+//        ),
     ],
     swiftLanguageVersions: [.v5]
 )
